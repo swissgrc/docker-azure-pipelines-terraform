@@ -1,4 +1,4 @@
-ARG AZURECLI_VERSION="2.9.1"
+ARG AZURECLI_VERSION="2.19.1"
 
 FROM mcr.microsoft.com/azure-cli:${AZURECLI_VERSION}
 
