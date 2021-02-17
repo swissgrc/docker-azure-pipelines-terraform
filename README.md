@@ -6,7 +6,7 @@ Docker image to run Terraform commands in [Azure Pipelines container jobs].
 
 ## Usage
 
-This container can be used to run Terraform commands in [Azure Pipelines container jobs]. For executing Azure command Azure CLI is included as well.
+This image can be used to run Terraform commands in [Azure Pipelines container jobs]. For executing Azure commands Azure CLI is included as well.
 
 ### Azure Pipelines Container Job
 
@@ -28,8 +28,8 @@ The following example shows the container used for a deployment step with a Terr
                     terraform init -backend-config=./config/dev_backend.tfvars
 ```
 
-The following example defines a deployment with the container using az login before calling Terraform commands.
-Note that the two secret variables ($AZURE_USERNAME and $AZURE_PASSWORD) are passed into by the env block.
+The following example defines a deployment with the container using `az login` before calling Terraform commands.
+Note that two secret variables (`Azure.UserName` and `Azure.Password`) are passed to the task by the env block.
 
 ```yaml
   - stage: deploy
