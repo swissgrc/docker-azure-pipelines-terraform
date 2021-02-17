@@ -1,5 +1,4 @@
 # Docker image for running Terraform commands in Azure Pipelines container job
-Docker image for running Terraform commands in an Azure Pipelines container job
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/swissgrc/docker-azure-pipelines-terraform/blob/main/LICENSE) [![Build](https://img.shields.io/docker/cloud/build/swissgrc/azure-pipelines-terraform.svg?style=flat-square)](https://hub.docker.com/r/swissgrc/azure-pipelines-terraform/builds) [![Pulls](https://img.shields.io/docker/pulls/swissgrc/azure-pipelines-terraform.svg?style=flat-square)](https://hub.docker.com/r/swissgrc/azure-pipelines-terraform) [![Stars](https://img.shields.io/docker/stars/swissgrc/azure-pipelines-terraform.svg?style=flat-square)](https://hub.docker.com/r/swissgrc/azure-pipelines-terraform)
 
@@ -7,13 +6,30 @@ Docker image to run Terraform commands in [Azure Pipelines container jobs].
 
 ## Usage
 
-This container can be used to run Terraform commands in [Azure Pipelines container jobs].
+This container can be used to run Terraform commands in [Azure Pipelines container jobs]. For executing Azure command Azure CLI is included as well.
 
 ### Azure Pipelines Container Job
 
-To use the image in an Azure Pipelines Container Job add the following task use it with the `container` property.
+To use the image in an Azure Pipelines Container Job, add one of the following example tasks and use it with the `container` property.
 
-The following example shows the container used for a deployment step
+The following example shows the container used for a deployment step with a Terraform command
+
+```yaml
+  - stage: deploy
+    jobs:
+      - deployment: planTerraform
+        container: swissgrc/azure-pipelines-terraform:latest
+        environment: smarthotel-dev
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - bash: |
+                    terraform init -backend-config=./config/dev_backend.tfvars
+```
+
+The following example defines a deployment with the container using az login before calling Terraform commands.
+Note that the two secret variables ($AZURE_USERNAME and $AZURE_PASSWORD) are passed into by the env block.
 
 ```yaml
   - stage: deploy
@@ -29,6 +45,9 @@ The following example shows the container used for a deployment step
                     az login -u $AZURE_USERNAME -p $AZURE_PASSWORD
                     terraform init -backend-config=./config/dev_backend.tfvars
                     terraform plan -var-file=./config/dev.tfvars
+                  env:
+                    AZURE_USERNAME: $(Azure.UserName)
+                    AZURE_PASSWORD: $(Azure.Password)
 ```
 
 ### Tags
@@ -45,8 +64,6 @@ These environment variables are supported:
 | Environment variable | Default value | Description                 |
 |----------------------|---------------|-----------------------------|
 | AZURECLI_VERSION     | `2.9.1`       | Version of Azure CLI to use.|
-| NODE_VERSION         | `15.8.0`      | Version of Node to use.     |
-| YARN_VERSION         | `1.22.5`      | Version of Yarn to use.     |
 | TERRAFORM_VERSION    | `0.14.6`      | Version of Terraform to use.|
 
 [Azure Pipelines container jobs]: https://docs.microsoft.com/en-us/azure/devops/pipelines/process/container-phases
