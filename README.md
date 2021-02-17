@@ -52,10 +52,11 @@ Note that two secret variables (`Azure.UserName` and `Azure.Password`) are passe
 
 ### Tags
 
-| Tag      | Description                                                                             | Size                                                                                                                          |
-|----------|-----------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------|
-| latest   | Latest stable release (from `main` branch)                                              | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-terraform/latest?style=flat-square)   |
-| unstable | Latest unstable release (from `develop` branch)                                         | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-terraform/unstable?style=flat-square) |
+| Tag      | Description                                                                                                                                                                                              | Size                                                                                                                               |
+|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
+| latest   | Latest stable release (from `main` branch)                                                                                                                                                               | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-terraform/latest?style=flat-square)   |
+| unstable | Latest unstable release (from `develop` branch)                                                                                                                                                          | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-terraform/unstable?style=flat-square) |
+| 0.14.6   | [Terraform 0.14.6](https://github.com/hashicorp/terraform/releases/tag/v0.14.6) & [Azure CLI 2.19.1](https://docs.microsoft.com/en-us/cli/azure/release-notes-azure-cli?tabs=azure-cli#february-10-2021) | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-terraform/0.14.6?style=flat-square)   |
 
 ### Configuration
 
