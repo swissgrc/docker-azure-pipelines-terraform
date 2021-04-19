@@ -1,6 +1,4 @@
-ARG AZURECLI_VERSION="2.19.1"
-
-FROM mcr.microsoft.com/azure-cli:${AZURECLI_VERSION}
+FROM mcr.microsoft.com/azure-cli:2.19.1
 
 ENV NODE_VERSION 15.8.0
 

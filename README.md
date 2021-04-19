@@ -64,7 +64,6 @@ These environment variables are supported:
 
 | Environment variable | Default value | Description                 |
 |----------------------|---------------|-----------------------------|
-| AZURECLI_VERSION     | `2.19.1`      | Version of Azure CLI to use.|
 | TERRAFORM_VERSION    | `0.14.6`      | Version of Terraform to use.|
 
 [Azure Pipelines container jobs]: https://docs.microsoft.com/en-us/azure/devops/pipelines/process/container-phases
