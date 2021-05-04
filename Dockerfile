@@ -1,6 +1,6 @@
 FROM mcr.microsoft.com/azure-cli:2.22.1
 
-ENV NODE_VERSION 15.14.0
+ENV NODE_VERSION 16.0.0
 
 RUN addgroup -g 1000 node \
     && adduser -u 1000 -G node -s /bin/sh -D node \
@@ -12,7 +12,7 @@ RUN addgroup -g 1000 node \
       && case "${alpineArch##*-}" in \
         x86_64) \
           ARCH='x64' \
-          CHECKSUM="5aefd9f12592e6ed7e7a1fe2696576cf3e19d42c6103abcc3347cab2e54b7fb3" \
+          CHECKSUM="edd34953d60a191af7a0675c64dacf6ab1db5fe4c5bb89ffa53e4b4036866499" \
           ;; \
         *) ;; \
       esac \
