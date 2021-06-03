@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/azure-cli:2.22.1
+FROM mcr.microsoft.com/azure-cli:2.24.2
 
 ENV NODE_VERSION 16.0.0
 
