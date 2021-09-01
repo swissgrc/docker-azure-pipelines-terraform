@@ -94,7 +94,7 @@ RUN apk add --no-cache --virtual .build-deps-yarn curl gnupg tar \
   # smoke test
   && yarn --version
 
-ENV TERRAFORM_VERSION=0.15.1
+ENV TERRAFORM_VERSION=1.0.4
 
 RUN apk add --no-cache --virtual .pipeline-deps readline linux-pam \
   && apk add bash sudo shadow \
