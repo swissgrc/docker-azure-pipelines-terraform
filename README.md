@@ -59,7 +59,7 @@ Note that two secret variables (`Azure.UserName` and `Azure.Password`) are passe
 | 0.14.6   | [Terraform 0.14.6](https://github.com/hashicorp/terraform/releases/tag/v0.14.6) & [Azure CLI 2.19.1](https://docs.microsoft.com/en-us/cli/azure/release-notes-azure-cli?tabs=azure-cli#february-10-2021) | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-terraform/0.14.6?style=flat-square)   |
 | 0.15.0   | [Terraform 0.15.0](https://github.com/hashicorp/terraform/releases/tag/v0.15.0) & [Azure CLI 2.22.0](https://docs.microsoft.com/en-us/cli/azure/release-notes-azure-cli?tabs=azure-cli#april-13-2021)    | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-terraform/0.15.0?style=flat-square)   |
 | 0.15.1   | [Terraform 0.15.1](https://github.com/hashicorp/terraform/releases/tag/v0.15.1) & [Azure CLI 2.22.1](https://docs.microsoft.com/en-us/cli/azure/release-notes-azure-cli?tabs=azure-cli#april-19-2021)    | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-terraform/0.15.1?style=flat-square)   |
-| 1.0.4    | [Terraform 1.0.4](https://github.com/hashicorp/terraform/releases/tag/v1.0.4) & [Azure CLI 2.27.2](https://docs.microsoft.com/en-us/cli/azure/release-notes-azure-cli?tabs=azure-cli#april-19-2021)    | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-terraform/0.15.1?style=flat-square)   |
+| 1.0.8    | [Terraform 1.0.8](https://github.com/hashicorp/terraform/releases/tag/v1.0.8) & [Azure CLI 2.27.2](https://docs.microsoft.com/en-us/cli/azure/release-notes-azure-cli?tabs=azure-cli#april-19-2021)    | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-terraform/0.15.1?style=flat-square)   |
 
 ### Configuration
 
@@ -67,6 +67,6 @@ These environment variables are supported:
 
 | Environment variable | Default value | Description                 |
 |----------------------|---------------|-----------------------------|
-| TERRAFORM_VERSION    | `1.0.4`       | Version of Terraform to use.|
+| TERRAFORM_VERSION    | `1.0.8`       | Version of Terraform to use.|
 
 [Azure Pipelines container jobs]: https://docs.microsoft.com/en-us/azure/devops/pipelines/process/container-phases
