@@ -1,6 +1,6 @@
-FROM mcr.microsoft.com/azure-cli:2.28.0
+FROM mcr.microsoft.com/azure-cli:2.37.0
 
-ENV NODE_VERSION 16.0.0
+ENV NODE_VERSION 16.15.0
 
 RUN addgroup -g 1000 node \
     && adduser -u 1000 -G node -s /bin/sh -D node \
@@ -12,7 +12,7 @@ RUN addgroup -g 1000 node \
       && case "${alpineArch##*-}" in \
         x86_64) \
           ARCH='x64' \
-          CHECKSUM="edd34953d60a191af7a0675c64dacf6ab1db5fe4c5bb89ffa53e4b4036866499" \
+          CHECKSUM="4db62cabc0647fc18f537ed10b5573f3c23ffb4d4434e40713e7e472f1ed4e55" \
           ;; \
         *) ;; \
       esac \
@@ -37,6 +37,7 @@ RUN addgroup -g 1000 node \
     # gpg keys listed at https://github.com/nodejs/node#release-keys
     && for key in \
       4ED778F539E3634C779C87C6D7062848A1AB005C \
+      141F07595B7B3FFE74309A937405533BE57C7D57 \
       94AE36675C464D64BAFA68DD7434390BDBE9B9C5 \
       74F12602B6F1C4E913FAA37AD3A89613643B6201 \
       71DCFD284A79C3B38668286BC97EC7A07EDE3FC1 \
@@ -48,9 +49,8 @@ RUN addgroup -g 1000 node \
       108F52B48DB57BB0CC439B2997B01419BD92F80A \
       B9E2F5981AA6E0CD28160D9FF13993A75599653C \
     ; do \
-      gpg --batch --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys "$key" || \
-      gpg --batch --keyserver hkp://ipv4.pool.sks-keyservers.net --recv-keys "$key" || \
-      gpg --batch --keyserver hkp://pgp.mit.edu:80 --recv-keys "$key" ; \
+      gpg --batch --keyserver hkps://keys.openpgp.org --recv-keys "$key" || \
+      gpg --batch --keyserver keyserver.ubuntu.com --recv-keys "$key" ; \
     done \
     && curl -fsSLO --compressed "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION.tar.xz" \
     && curl -fsSLO --compressed "https://nodejs.org/dist/v$NODE_VERSION/SHASUMS256.txt.asc" \
@@ -72,7 +72,7 @@ RUN addgroup -g 1000 node \
   && node --version \
   && npm --version
 
-ENV YARN_VERSION 1.22.10
+ENV YARN_VERSION 1.22.18
 
 RUN apk add --no-cache --virtual .build-deps-yarn curl gnupg tar \
   && for key in \
@@ -94,7 +94,7 @@ RUN apk add --no-cache --virtual .build-deps-yarn curl gnupg tar \
   # smoke test
   && yarn --version
 
-ENV TERRAFORM_VERSION=1.0.8
+ENV TERRAFORM_VERSION=1.2.2
 
 RUN apk add --no-cache --virtual .pipeline-deps readline linux-pam \
   && apk add bash sudo shadow \
