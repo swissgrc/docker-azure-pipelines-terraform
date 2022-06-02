@@ -1,5 +1,13 @@
 FROM mcr.microsoft.com/azure-cli:2.37.0
 
+LABEL org.opencontainers.image.vendor="Swiss GRC AG"
+LABEL org.opencontainers.image.authors="Swiss GRC AG <opensource@swissgrc.com>"
+LABEL org.opencontainers.image.title="azure-pipelines-terraform"
+LABEL org.opencontainers.image.description="Docker image for running Terraform commands in an Azure Pipelines container job"
+LABEL org.opencontainers.image.url="https://github.com/swissgrc/docker-azure-pipelines-terraform"
+LABEL org.opencontainers.image.source="https://github.com/swissgrc/docker-azure-pipelines-terraform"
+LABEL org.opencontainers.image.documentation="https://github.com/swissgrc/docker-azure-pipelines-terraform"
+
 ENV NODE_VERSION 16.15.0
 
 RUN addgroup -g 1000 node \
