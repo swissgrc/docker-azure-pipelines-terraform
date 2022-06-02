@@ -68,6 +68,6 @@ These environment variables are supported:
 
 | Environment variable | Default value | Description                 |
 |----------------------|---------------|-----------------------------|
-| TERRAFORM_VERSION    | `1.0.8`       | Version of Terraform to use.|
+| TERRAFORM_VERSION    | `1.2.2`       | Version of Terraform to use.|
 
 [Azure Pipelines container jobs]: https://docs.microsoft.com/en-us/azure/devops/pipelines/process/container-phases
