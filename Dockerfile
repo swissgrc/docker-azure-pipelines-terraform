@@ -13,6 +13,7 @@ LABEL "com.azure.dev.pipelines.agent.handler.node.path"="/usr/local/bin/node"
 
 # Install Azure CLI
 
+# renovate: datasource=github-releases depName=Azure/azure-cli extractVersion=^Azure CLI (?<version>.*)$
 ENV AZURECLI_VERSION=2.37.0
 
 RUN apt update -y && \
@@ -27,6 +28,7 @@ RUN apt update -y && \
 
 # Install Terraform
 
+# renovate: datasource=github-releases depName=hashicorp/terraform extractVersion=^v(?<version>.*)$
 ENV TERRAFORM_VERSION=1.2.2
 
 RUN apt update -y && \
