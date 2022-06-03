@@ -102,7 +102,8 @@ RUN apk add --no-cache --virtual .pipeline-deps readline linux-pam \
   && wget -q https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip \
   && unzip terraform_${TERRAFORM_VERSION}_linux_amd64.zip -d /usr/bin \
   && rm -rf /tmp/* \
-  && apk del .pipeline-deps
+  && apk del .pipeline-deps \
+  && terraform version
 
 LABEL "com.azure.dev.pipelines.agent.handler.node.path"="/usr/local/bin/node"
 
