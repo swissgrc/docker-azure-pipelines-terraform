@@ -11,6 +11,9 @@ LABEL org.opencontainers.image.documentation="https://github.com/swissgrc/docker
 # Required for Azure Pipelines Container Jobs
 LABEL "com.azure.dev.pipelines.agent.handler.node.path"="/usr/local/bin/node"
 
+# Make sure to fail due to an error at any stage in shell pipes
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
 # Install Azure CLI
 
 # renovate: datasource=github-releases depName=Azure/azure-cli extractVersion=^Azure CLI (?<version>.*)$
