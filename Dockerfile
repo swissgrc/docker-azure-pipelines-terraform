@@ -16,13 +16,13 @@ LABEL "com.azure.dev.pipelines.agent.handler.node.path"="/usr/local/bin/node"
 # renovate: datasource=github-releases depName=Azure/azure-cli extractVersion=^Azure CLI (?<version>.*)$
 ENV AZURECLI_VERSION=2.37.0
 
-RUN apt update -y && \
-  apt install -y ca-certificates curl apt-transport-https lsb-release gnupg && \
+RUN apt-get update -y && \
+  apt-get install -y ca-certificates curl apt-transport-https lsb-release gnupg && \
   curl -sL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > /etc/apt/trusted.gpg.d/microsoft.asc.gpg && \
   AZ_REPO=$(lsb_release -cs) && \
   echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" > /etc/apt/sources.list.d/azure-cli.list && \
-  apt update && apt install -y azure-cli=${AZURECLI_VERSION}-1~buster && \
-  apt clean all && \
+  apt-get update && apt-get install -y azure-cli=${AZURECLI_VERSION}-1~buster && \
+  apt-get clean all && \
   # Smoke test
   az version
 
@@ -31,13 +31,13 @@ RUN apt update -y && \
 # renovate: datasource=github-releases depName=hashicorp/terraform extractVersion=^v(?<version>.*)$
 ENV TERRAFORM_VERSION=1.2.2
 
-RUN apt update -y && \
-  apt install -y wget unzip && \
+RUN apt-get update -y && \
+  apt-get install -y wget unzip && \
   cd /tmp && \
   wget -q https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip && \
   unzip terraform_${TERRAFORM_VERSION}_linux_amd64.zip -d /usr/bin && \
   rm -rf /tmp/* && \
-  apt clean all && \
+  apt-get clean all && \
   # Smoke test
   terraform version
 
