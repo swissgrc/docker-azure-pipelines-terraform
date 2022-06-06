@@ -25,7 +25,8 @@ RUN apt-get update -y && \
   AZ_REPO=$(lsb_release -cs) && \
   echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" > /etc/apt/sources.list.d/azure-cli.list && \
   apt-get update && apt-get install -y azure-cli=${AZURECLI_VERSION}-1~buster && \
-  apt-get clean all && \
+  apt-get clean && \
+  rm -rf /var/lib/apt/lists/* && \
   # Smoke test
   az version
 
@@ -40,7 +41,8 @@ RUN apt-get update -y && \
   wget -q https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip && \
   unzip terraform_${TERRAFORM_VERSION}_linux_amd64.zip -d /usr/bin && \
   rm -rf /tmp/* && \
-  apt-get clean all && \
+  apt-get clean && \
+  rm -rf /var/lib/apt/lists/* && \
   # Smoke test
   terraform version
 
