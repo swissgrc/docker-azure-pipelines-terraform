@@ -20,11 +20,11 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 ENV AZURECLI_VERSION=2.37.0
 
 RUN apt-get update -y && \
-  apt-get install -y ca-certificates curl apt-transport-https lsb-release gnupg && \
+  apt-get install -y --no-install-recommends ca-certificates curl apt-transport-https lsb-release gnupg && \
   curl -sL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > /etc/apt/trusted.gpg.d/microsoft.asc.gpg && \
   AZ_REPO=$(lsb_release -cs) && \
   echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" > /etc/apt/sources.list.d/azure-cli.list && \
-  apt-get update && apt-get install -y azure-cli=${AZURECLI_VERSION}-1~buster && \
+  apt-get update && apt-get install -y --no-install-recommends azure-cli=${AZURECLI_VERSION}-1~buster && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/* && \
   # Smoke test
@@ -36,7 +36,7 @@ RUN apt-get update -y && \
 ENV TERRAFORM_VERSION=1.2.2
 
 RUN apt-get update -y && \
-  apt-get install -y wget unzip && \
+  apt-get install -y --no-install-recommends wget unzip && \
   cd /tmp && \
   wget -q https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip && \
   unzip terraform_${TERRAFORM_VERSION}_linux_amd64.zip -d /usr/bin && \
