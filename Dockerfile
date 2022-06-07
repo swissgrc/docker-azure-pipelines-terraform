@@ -22,15 +22,13 @@ ENV AZURECLI_VERSION=2.37.0
 ENV CACERTIFICATES_VERSION=20200601~deb10u2
 # renovate: datasource=repology depName=debian_10/curl versioning=loose
 ENV CURL_VERSION=7.64.0-4+deb10u2
-# renovate: datasource=repology depName=debian_10/apt-transport-https versioning=loose
-ENV APTTRANSPORTHTTPS_VERSION=1.8.2.3
 # renovate: datasource=repology depName=debian_10/lsb-release versioning=loose
 ENV LSBRELEASE_VERSION=10.2019051400
 # renovate: datasource=repology depName=debian_10/gnupg2 versioning=loose
 ENV GNUPG_VERSION=2.2.12-1+deb10u1
 
 RUN apt-get update -y && \
-  apt-get install -y --no-install-recommends ca-certificates=${CACERTIFICATES_VERSION} curl=${CURL_VERSION} apt-transport-https=${APTTRANSPORTHTTPS_VERSION} lsb-release=${LSBRELEASE_VERSION} gnupg=${GNUPG_VERSION} && \
+  apt-get install -y --no-install-recommends ca-certificates=${CACERTIFICATES_VERSION} curl=${CURL_VERSION} lsb-release=${LSBRELEASE_VERSION} gnupg=${GNUPG_VERSION} && \
   curl -sL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > /etc/apt/trusted.gpg.d/microsoft.asc.gpg && \
   AZ_REPO=$(lsb_release -cs) && \
   echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" > /etc/apt/sources.list.d/azure-cli.list && \
