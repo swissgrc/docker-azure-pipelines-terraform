@@ -18,9 +18,19 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # renovate: datasource=github-releases depName=Azure/azure-cli extractVersion=^Azure CLI (?<version>.*)$
 ENV AZURECLI_VERSION=2.37.0
+# renovate: datasource=repology depName=debian_10/ca-certificates versioning=loose
+ENV CACERTIFICATES_VERSION=20200601~deb10u2
+# renovate: datasource=repology depName=debian_10/curl versioning=loose
+ENV CURL_VERSION=7.64.0-4+deb10u2
+# renovate: datasource=repology depName=debian_10/apt-transport-https versioning=loose
+ENV APTTRANSPORTHTTPS_VERSION=1.8.2.3
+# renovate: datasource=repology depName=debian_10/lsb-release versioning=loose
+ENV LSBRELEASE_VERSION=10.2019051400
+# renovate: datasource=repology depName=debian_10/gnupg versioning=loose
+ENV GNUPG_VERSION=2.2.12-1+deb10u1
 
 RUN apt-get update -y && \
-  apt-get install -y --no-install-recommends ca-certificates curl apt-transport-https lsb-release gnupg && \
+  apt-get install -y --no-install-recommends ca-certificates=${CACERTIFICATES_VERSION} curl=${CURL_VERSION} apt-transport-https=${APTTRANSPORTHTTPS_VERSION} lsb-release=${LSBRELEASE_VERSION} gnupg=${GNUPG_VERSION} && \
   curl -sL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > /etc/apt/trusted.gpg.d/microsoft.asc.gpg && \
   AZ_REPO=$(lsb_release -cs) && \
   echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" > /etc/apt/sources.list.d/azure-cli.list && \
@@ -34,9 +44,11 @@ RUN apt-get update -y && \
 
 # renovate: datasource=github-releases depName=hashicorp/terraform extractVersion=^v(?<version>.*)$
 ENV TERRAFORM_VERSION=1.2.2
+# renovate: datasource=repology depName=debian_10/unzip versioning=loose
+ENV UNZIP_VERSION=6.0-23+deb10u2
 
 RUN apt-get update -y && \
-  apt-get install -y --no-install-recommends unzip && \
+  apt-get install -y --no-install-recommends unzip=${UNZIP_VERSION} && \
   curl -o /tmp/terraform.zip https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip && \
   unzip /tmp/terraform.zip -d /usr/bin && \
   rm -rf /tmp/* && \
