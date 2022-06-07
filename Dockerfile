@@ -37,9 +37,8 @@ ENV TERRAFORM_VERSION=1.2.2
 
 RUN apt-get update -y && \
   apt-get install -y --no-install-recommends unzip && \
-  cd /tmp && \
-  curl -O https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip && \
-  unzip terraform_${TERRAFORM_VERSION}_linux_amd64.zip -d /usr/bin && \
+  curl -o /tmp/terraform.zip https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip && \
+  unzip /tmp/terraform.zip -d /usr/bin && \
   rm -rf /tmp/* && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/* && \
