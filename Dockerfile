@@ -1,4 +1,4 @@
-FROM node:16.15.1-buster-slim
+FROM debian:buster-slim
 
 LABEL org.opencontainers.image.vendor="Swiss GRC AG"
 LABEL org.opencontainers.image.authors="Swiss GRC AG <opensource@swissgrc.com>"
@@ -7,9 +7,6 @@ LABEL org.opencontainers.image.description="Docker image for running Terraform c
 LABEL org.opencontainers.image.url="https://github.com/swissgrc/docker-azure-pipelines-terraform"
 LABEL org.opencontainers.image.source="https://github.com/swissgrc/docker-azure-pipelines-terraform"
 LABEL org.opencontainers.image.documentation="https://github.com/swissgrc/docker-azure-pipelines-terraform"
-
-# Required for Azure Pipelines Container Jobs
-LABEL "com.azure.dev.pipelines.agent.handler.node.path"="/usr/local/bin/node"
 
 # Make sure to fail due to an error at any stage in shell pipes
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
@@ -54,5 +51,3 @@ RUN apt-get update -y && \
   rm -rf /var/lib/apt/lists/* && \
   # Smoke test
   terraform version
-
-CMD [ "node" ]
