@@ -16,20 +16,20 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # renovate: datasource=github-releases depName=Azure/azure-cli extractVersion=^Azure CLI (?<version>.*)$
 ENV AZURECLI_VERSION=2.37.0
 # renovate: datasource=repology depName=debian_10/ca-certificates versioning=loose
-ENV CACERTIFICATES_VERSION=20200601~deb10u2
+ENV CACERTIFICATES_VERSION=20210119
 # renovate: datasource=repology depName=debian_10/curl versioning=loose
-ENV CURL_VERSION=7.64.0-4+deb10u2
+ENV CURL_VERSION=7.74.0-1.3+deb11u1
 # renovate: datasource=repology depName=debian_10/lsb-release versioning=loose
-ENV LSBRELEASE_VERSION=10.2019051400
+ENV LSBRELEASE_VERSION=11.1.0
 # renovate: datasource=repology depName=debian_10/gnupg2 versioning=loose
-ENV GNUPG_VERSION=2.2.12-1+deb10u1
+ENV GNUPG_VERSION=2.2.27-2+deb11u1
 
 RUN apt-get update -y && \
   apt-get install -y --no-install-recommends ca-certificates=${CACERTIFICATES_VERSION} curl=${CURL_VERSION} lsb-release=${LSBRELEASE_VERSION} gnupg=${GNUPG_VERSION} && \
   curl -sL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > /etc/apt/trusted.gpg.d/microsoft.asc.gpg && \
   AZ_REPO=$(lsb_release -cs) && \
   echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" > /etc/apt/sources.list.d/azure-cli.list && \
-  apt-get update && apt-get install -y --no-install-recommends azure-cli=${AZURECLI_VERSION}-1~buster && \
+  apt-get update && apt-get install -y --no-install-recommends azure-cli=${AZURECLI_VERSION}-1~bullseye && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/* && \
   # Smoke test
@@ -40,7 +40,7 @@ RUN apt-get update -y && \
 # renovate: datasource=github-releases depName=hashicorp/terraform extractVersion=^v(?<version>.*)$
 ENV TERRAFORM_VERSION=1.2.2
 # renovate: datasource=repology depName=debian_10/unzip versioning=loose
-ENV UNZIP_VERSION=6.0-23+deb10u2
+ENV UNZIP_VERSION=6.0-26
 
 RUN apt-get update -y && \
   apt-get install -y --no-install-recommends unzip=${UNZIP_VERSION} && \
