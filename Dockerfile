@@ -26,7 +26,7 @@ ENV CURL_VERSION=7.64.0-4+deb10u2
 ENV APTTRANSPORTHTTPS_VERSION=1.8.2.3
 # renovate: datasource=repology depName=debian_10/lsb-release versioning=loose
 ENV LSBRELEASE_VERSION=10.2019051400
-# renovate: datasource=repology depName=debian_10/gnupg versioning=loose
+# renovate: datasource=repology depName=debian_10/gnupg2 versioning=loose
 ENV GNUPG_VERSION=2.2.12-1+deb10u1
 
 RUN apt-get update -y && \
