@@ -27,13 +27,13 @@ RUN apt-get update -y && \
 
 # renovate: datasource=github-releases depName=Azure/azure-cli extractVersion=^Azure CLI (?<version>.*)$
 ENV AZURECLI_VERSION=2.37.0
-# renovate: datasource=repology depName=debian_10/ca-certificates versioning=loose
+# renovate: datasource=repology depName=debian_11/ca-certificates versioning=loose
 ENV CACERTIFICATES_VERSION=20210119
-# renovate: datasource=repology depName=debian_10/curl versioning=loose
+# renovate: datasource=repology depName=debian_11/curl versioning=loose
 ENV CURL_VERSION=7.74.0-1.3+deb11u1
-# renovate: datasource=repology depName=debian_10/lsb-release versioning=loose
+# renovate: datasource=repology depName=debian_11/lsb-release versioning=loose
 ENV LSBRELEASE_VERSION=11.1.0
-# renovate: datasource=repology depName=debian_10/gnupg2 versioning=loose
+# renovate: datasource=repology depName=debian_11/gnupg2 versioning=loose
 ENV GNUPG_VERSION=2.2.27-2+deb11u1
 
 RUN apt-get update -y && \
@@ -51,7 +51,7 @@ RUN apt-get update -y && \
 
 # renovate: datasource=github-releases depName=hashicorp/terraform extractVersion=^v(?<version>.*)$
 ENV TERRAFORM_VERSION=1.2.2
-# renovate: datasource=repology depName=debian_10/unzip versioning=loose
+# renovate: datasource=repology depName=debian_11/unzip versioning=loose
 ENV UNZIP_VERSION=6.0-26
 
 RUN apt-get update -y && \
