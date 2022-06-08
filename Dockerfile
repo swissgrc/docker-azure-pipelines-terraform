@@ -11,6 +11,18 @@ LABEL org.opencontainers.image.documentation="https://github.com/swissgrc/docker
 # Make sure to fail due to an error at any stage in shell pipes
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
+# Install Git
+
+# renovate: datasource=repology depName=debian_11/git versioning=loose
+ENV GIT_VERSION=1:2.30.2-1
+
+RUN apt-get update -y && \
+  apt-get install -y --no-install-recommends git=${GIT_VERSION} && \
+  apt-get clean && \
+  rm -rf /var/lib/apt/lists/* && \
+  # Smoke test
+  git version
+
 # Install Azure CLI
 
 # renovate: datasource=github-releases depName=Azure/azure-cli extractVersion=^Azure CLI (?<version>.*)$
