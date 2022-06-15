@@ -1,4 +1,4 @@
-FROM debian:bullseye-slim
+FROM debian:11.3-slim
 
 LABEL org.opencontainers.image.vendor="Swiss GRC AG"
 LABEL org.opencontainers.image.authors="Swiss GRC AG <opensource@swissgrc.com>"
