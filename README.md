@@ -54,22 +54,31 @@ Note that two secret variables (`Azure.UserName` and `Azure.Password`) are passe
 
 ### Tags
 
-| Tag      | Description                                                                                                                                                                                              | Size                                                                                                                               |
-|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| latest   | Latest stable release (from `main` branch)                                                                                                                                                               | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-terraform/latest?style=flat-square)   |
-| unstable | Latest unstable release (from `develop` branch)                                                                                                                                                          | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-terraform/unstable?style=flat-square) |
-| 0.14.6   | [Terraform 0.14.6](https://github.com/hashicorp/terraform/releases/tag/v0.14.6) & [Azure CLI 2.19.1](https://docs.microsoft.com/en-us/cli/azure/release-notes-azure-cli?tabs=azure-cli#february-10-2021) | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-terraform/0.14.6?style=flat-square)   |
-| 0.15.0   | [Terraform 0.15.0](https://github.com/hashicorp/terraform/releases/tag/v0.15.0) & [Azure CLI 2.22.0](https://docs.microsoft.com/en-us/cli/azure/release-notes-azure-cli?tabs=azure-cli#april-13-2021)    | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-terraform/0.15.0?style=flat-square)   |
-| 0.15.1   | [Terraform 0.15.1](https://github.com/hashicorp/terraform/releases/tag/v0.15.1) & [Azure CLI 2.22.1](https://docs.microsoft.com/en-us/cli/azure/release-notes-azure-cli?tabs=azure-cli#april-19-2021)    | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-terraform/0.15.1?style=flat-square)   |
-| 1.0.8    | [Terraform 1.0.8](https://github.com/hashicorp/terraform/releases/tag/v1.0.8) & [Azure CLI 2.28.0](https://docs.microsoft.com/en-us/cli/azure/release-notes-azure-cli?tabs=azure-cli#september-07-2021)  | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-terraform/1.0.8?style=flat-square)    |
-| 1.2.2    | [Terraform 1.2.2](https://github.com/hashicorp/terraform/releases/tag/v1.2.2) & [Azure CLI 2.37.0](https://docs.microsoft.com/en-us/cli/azure/release-notes-azure-cli?tabs=azure-cli#may-24-2022)        | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-terraform/1.2.2?style=flat-square)    |
+| Tag      | Description                                                                     | Base Image       | Terraform | Git        | Azure CLI | .NET    | Size                                                                                                                               |
+|----------|---------------------------------------------------------------------------------|------------------|-----------|------------|-----------|---------|------------------------------------------------------------------------------------------------------------------------------------|
+| latest   | Latest stable release (from `main` branch)                                      | debian:11.3-slim | 1.2.3     | 1:2.30.2-1 | 2.37.0    | 6.0.301 | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-terraform/latest?style=flat-square)   |
+| unstable | Latest unstable release (from `develop` branch)                                 | debian:11.3-slim | 1.2.3     | 1:2.30.2-1 | 2.37.0    | 6.0.301 | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-terraform/unstable?style=flat-square) |
+| 0.14.6   | [Terraform 0.14.6](https://github.com/hashicorp/terraform/releases/tag/v0.14.6) | azure-cli:2.19.1 | 0.14.6    | N/A        | 2.19.1    | N/A     | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-terraform/0.14.6?style=flat-square)   |
+| 0.15.0   | [Terraform 0.15.0](https://github.com/hashicorp/terraform/releases/tag/v0.15.0) | azure-cli:2.22.0 | 0.15.0    | N/A        | 2.22.0    | N/A     | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-terraform/0.15.0?style=flat-square)   |
+| 0.15.1   | [Terraform 0.15.1](https://github.com/hashicorp/terraform/releases/tag/v0.15.1) | azure-cli:2.22.1 | 0.15.1    | N/A        | 2.22.1    | N/A     | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-terraform/0.15.1?style=flat-square)   |
+| 1.0.8    | [Terraform 1.0.8](https://github.com/hashicorp/terraform/releases/tag/v1.0.8)   | azure-cli:2.28.0 | 1.0.8     | N/A        | 2.28.0    | N/A     | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-terraform/1.0.8?style=flat-square)    |
+| 1.2.2    | [Terraform 1.2.2](https://github.com/hashicorp/terraform/releases/tag/v1.2.2)   | azure-cli:2.37.0 | 1.2.2     | N/A        | 2.37.0    | N/A     | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-terraform/1.2.2?style=flat-square)    |
+| 1.2.3    | [Terraform 1.2.3](https://github.com/hashicorp/terraform/releases/tag/v1.2.3)   | debian:11.3-slim | 1.2.3     | 1:2.30.2-1 | 2.37.0    | 6.0.301 | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-terraform/1.2.3?style=flat-square)    |
 
 ### Configuration
 
 These environment variables are supported:
 
-| Environment variable | Default value | Description                 |
-|----------------------|---------------|-----------------------------|
-| TERRAFORM_VERSION    | `1.2.2`       | Version of Terraform to use.|
+| Environment variable   | Default value        | Description                                                      |
+|------------------------|----------------------|------------------------------------------------------------------|
+| TERRAFORM_VERSION      | `1.2.3`              | Version of Terraform installed in the image.                     |
+| GIT_VERSION            | `1:2.30.2-1`         | Version of Git installed in the image.                           |
+| DOTNET_VERSION         | `6.0.301`            | Version of .NET installed in the image.                          |
+| AZURECLI_VERSION       | `2.37.0`             | Version of Azure CLI installed in the image.                     |
+| CACERTIFICATES_VERSION | `20210119`           | Version of `ca-certificates` package used to install components. |
+| CURL_VERSION           | `7.74.0-1.3+deb11u1` | Version of `curl` package used to install components.            |
+| LSBRELEASE_VERSION     | `11.1.0`             | Version of `lsb-release` package used to install components.     |
+| GNUPG_VERSION          | `2.2.27-2+deb11u1`   | Version of `gnupg` package used to install components.           |
+| UNZIP_VERSION          | `6.0-26`             | Version of `unzip` package used to install components.           |
 
 [Azure Pipelines container jobs]: https://docs.microsoft.com/en-us/azure/devops/pipelines/process/container-phases
