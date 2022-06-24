@@ -39,7 +39,7 @@ jobs:
 
       # Scan Docker image
       - name: Scan Docker image
-        uses: aquasecurity/trivy-action@4b9b6fb4ef28b31450391a93ade098bb00de584e # renovate: tag=0.3.0
+        uses: aquasecurity/trivy-action@7b7aa264d83dc58691451798b4d117d53d21edfe # tag=0.5.0
         with:
           image-ref: ${{ steps.meta.outputs.tags }}
           format: 'sarif'
