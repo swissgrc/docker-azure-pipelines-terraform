@@ -47,7 +47,7 @@ jobs:
 
       # Publish scan report to GitHub
       - name: Publish scan report to GitHub        
-        uses: github/codeql-action/upload-sarif@a6611b86918424d4588efe7d6dbe18fe52d42518 # renovate: tag=v1
+        uses: github/codeql-action/upload-sarif@41a4ada31ba866a7f1196b9602703a89edd69e22 # tag=v2
         if: ${{ always() }}
         with:
           sarif_file: trivy-results.sarif
