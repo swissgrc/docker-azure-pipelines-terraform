@@ -14,20 +14,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # renovate: tag=v3
-
-      # Login against a Docker registry except on PR
-      - name: Log in to Docker Hub
-        if: github.event_name != 'pull_request'
-        uses: docker/login-action@49ed152c8eca782a232dede0303416e8f356c37b # renovate: tag=v2
-        with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # renovate: tag=v3.0.2
 
       # Extract metadata (tags, labels) for Docker
       - name: Extract Docker metadata
         id: meta
-        uses: docker/metadata-action@69f6fc9d46f2f8bf0d5491e4aabe0bb8c6a4678a # renovate: tag=v4
+        uses: docker/metadata-action@69f6fc9d46f2f8bf0d5491e4aabe0bb8c6a4678a # renovate: tag=v4.0.1
         with:
           images: swissgrc/azure-pipelines-terraform
           tags: |
@@ -36,12 +28,45 @@ jobs:
             # set unstable tag for develop branch
             type=raw,value=unstable,enable=${{ github.ref == format('refs/heads/{0}', 'develop') }}
 
-      # Build and push Docker image with Buildx (don't push on PR)
-      - name: Build and push Docker image
-        id: build-and-push
-        uses: docker/build-push-action@e551b19e49efd4e98792db7592c17c09b89db8d8 # renovate: tag=v3
+      # Build Docker image with Buildx
+      - name: Build Docker image
+        uses: docker/build-push-action@e551b19e49efd4e98792db7592c17c09b89db8d8 # renovate: tag=v3.0.0
         with:
           context: .
-          push: ${{ github.event_name != 'pull_request' }}
+          push: false
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+
+      # Scan Docker image (not for release builds since we will have multiple tags)
+      - name: Scan Docker image
+        if: github.event_name != 'release'
+        uses: aquasecurity/trivy-action@7b7aa264d83dc58691451798b4d117d53d21edfe # tag=0.5.0
+        with:
+          image-ref: ${{ steps.meta.outputs.tags }}
+          format: 'sarif'
+          output: 'trivy-results.sarif'
+
+      # Publish scan report to GitHub
+      - name: Publish scan report to GitHub
+        if: ${{ github.event_name != 'release' && always() }}
+        uses: github/codeql-action/upload-sarif@3f62b754e23e0dd60f91b744033e1dc1654c0ec6 # tag=v2.1.15
+        with:
+          sarif_file: trivy-results.sarif
+
+      # Login to Docker registry if not PR build
+      - name: Log in to Docker Hub
+        if: github.event_name != 'pull_request'
+        uses: docker/login-action@49ed152c8eca782a232dede0303416e8f356c37b # renovate: tag=v2.0.0
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      # Publish Docker image for CI builds if not PR build
+      - name: Push container image
+        uses: docker/build-push-action@e551b19e49efd4e98792db7592c17c09b89db8d8 # renovate: tag=v3.0.0
+        if: github.event_name != 'pull_request'
+        with:
+          context: .
+          push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
