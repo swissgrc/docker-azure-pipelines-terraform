@@ -64,6 +64,7 @@ Note that two secret variables (`Azure.UserName` and `Azure.Password`) are passe
 | 1.0.8    | [Terraform 1.0.8](https://github.com/hashicorp/terraform/releases/tag/v1.0.8)   | azure-cli:2.28.0 | 1.0.8     | N/A        | 2.28.0    | N/A     | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-terraform/1.0.8?style=flat-square)    |
 | 1.2.2    | [Terraform 1.2.2](https://github.com/hashicorp/terraform/releases/tag/v1.2.2)   | azure-cli:2.37.0 | 1.2.2     | N/A        | 2.37.0    | N/A     | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-terraform/1.2.2?style=flat-square)    |
 | 1.2.3    | [Terraform 1.2.3](https://github.com/hashicorp/terraform/releases/tag/v1.2.3)   | debian:11.3-slim | 1.2.3     | 1:2.30.2-1 | 2.37.0    | 6.0.301 | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-terraform/1.2.3?style=flat-square)    |
+| 1.2.4    | [Terraform 1.2.4](https://github.com/hashicorp/terraform/releases/tag/v1.2.4)   | debian:11.3-slim | 1.2.4     | 1:2.30.2-1 | 2.37.0    | 6.0.301 | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-terraform/1.2.4?style=flat-square)    |
 
 ### Configuration
 
@@ -71,7 +72,7 @@ These environment variables are supported:
 
 | Environment variable   | Default value        | Description                                                      |
 |------------------------|----------------------|------------------------------------------------------------------|
-| TERRAFORM_VERSION      | `1.2.3`              | Version of Terraform installed in the image.                     |
+| TERRAFORM_VERSION      | `1.2.4`              | Version of Terraform installed in the image.                     |
 | GIT_VERSION            | `1:2.30.2-1`         | Version of Git installed in the image.                           |
 | DOTNET_VERSION         | `6.0.301`            | Version of .NET installed in the image.                          |
 | AZURECLI_VERSION       | `2.37.0`             | Version of Azure CLI installed in the image.                     |
