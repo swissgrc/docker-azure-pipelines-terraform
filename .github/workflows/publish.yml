@@ -14,12 +14,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # renovate: tag=v3
+        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # renovate: tag=v3.0.2
 
       # Extract metadata (tags, labels) for Docker
       - name: Extract Docker metadata
         id: meta
-        uses: docker/metadata-action@69f6fc9d46f2f8bf0d5491e4aabe0bb8c6a4678a # renovate: tag=v4
+        uses: docker/metadata-action@69f6fc9d46f2f8bf0d5491e4aabe0bb8c6a4678a # renovate: tag=v4.0.1
         with:
           images: swissgrc/azure-pipelines-terraform
           tags: |
@@ -30,7 +30,7 @@ jobs:
 
       # Build Docker image with Buildx
       - name: Build Docker image
-        uses: docker/build-push-action@e551b19e49efd4e98792db7592c17c09b89db8d8 # renovate: tag=v3
+        uses: docker/build-push-action@e551b19e49efd4e98792db7592c17c09b89db8d8 # renovate: tag=v3.0.0
         with:
           context: .
           push: false
@@ -47,23 +47,23 @@ jobs:
           output: 'trivy-results.sarif'
 
       # Publish scan report to GitHub
-      - name: Publish scan report to GitHub        
+      - name: Publish scan report to GitHub
         if: ${{ github.event_name != 'release' && always() }}
-        uses: github/codeql-action/upload-sarif@41a4ada31ba866a7f1196b9602703a89edd69e22 # tag=v2
+        uses: github/codeql-action/upload-sarif@41a4ada31ba866a7f1196b9602703a89edd69e22 # tag=v2.1.14
         with:
           sarif_file: trivy-results.sarif
 
       # Login to Docker registry if not PR build
       - name: Log in to Docker Hub
         if: github.event_name != 'pull_request'
-        uses: docker/login-action@49ed152c8eca782a232dede0303416e8f356c37b # renovate: tag=v2
+        uses: docker/login-action@49ed152c8eca782a232dede0303416e8f356c37b # renovate: tag=v2.0.0
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       # Publish Docker image for CI builds if not PR build
       - name: Push container image
-        uses: docker/build-push-action@e551b19e49efd4e98792db7592c17c09b89db8d8 # renovate: tag=v3
+        uses: docker/build-push-action@e551b19e49efd4e98792db7592c17c09b89db8d8 # renovate: tag=v3.0.0
         if: github.event_name != 'pull_request'
         with:
           context: .
