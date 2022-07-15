@@ -83,6 +83,7 @@ These environment variables are supported:
 | Environment variable   | Default value        | Description                                                      |
 |------------------------|----------------------|------------------------------------------------------------------|
 | TERRAFORM_VERSION      | `1.2.5`              | Version of Terraform installed in the image.                     |
+| GIT_VERSION            | `1:2.30.2-1`         | Version of Git installed in the image.                           |
 | UNZIP_VERSION          | `6.0-26`             | Version of `unzip` package used to install components.           |
 
 [Azure Pipelines container jobs]: https://docs.microsoft.com/en-us/azure/devops/pipelines/process/container-phases
