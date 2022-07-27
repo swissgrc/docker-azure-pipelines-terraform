@@ -30,7 +30,7 @@ jobs:
 
       # Build Docker image with Buildx
       - name: Build Docker image
-        uses: docker/build-push-action@e551b19e49efd4e98792db7592c17c09b89db8d8 # renovate: tag=v3.0.0
+        uses: docker/build-push-action@1cb9d22b932e4832bb29793b7777ec860fc1cde0 # tag=v3.1.0
         with:
           context: .
           push: false
@@ -40,7 +40,7 @@ jobs:
       # Scan Docker image (not for release builds since we will have multiple tags)
       - name: Scan Docker image
         if: github.event_name != 'release'
-        uses: aquasecurity/trivy-action@0105373003c89c494a3f436bd5efc57f3ac1ca20 # tag=0.5.1
+        uses: aquasecurity/trivy-action@81b9a6f5abb1047d697af7a3ca18c13f55a97315 # tag=0.6.1
         with:
           image-ref: ${{ steps.meta.outputs.tags }}
           format: 'sarif'
@@ -63,7 +63,7 @@ jobs:
 
       # Publish Docker image for CI builds if not PR build
       - name: Push container image
-        uses: docker/build-push-action@e551b19e49efd4e98792db7592c17c09b89db8d8 # renovate: tag=v3.0.0
+        uses: docker/build-push-action@1cb9d22b932e4832bb29793b7777ec860fc1cde0 # tag=v3.1.0
         if: github.event_name != 'pull_request'
         with:
           context: .
