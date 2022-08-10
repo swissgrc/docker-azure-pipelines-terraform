@@ -23,7 +23,7 @@ RUN apt-get update -y && \
 # Install Terraform
 
 # renovate: datasource=github-releases depName=hashicorp/terraform extractVersion=^v(?<version>.*)$
-ENV TERRAFORM_VERSION=1.2.6
+ENV TERRAFORM_VERSION=1.2.7
 # renovate: datasource=repology depName=debian_11/unzip versioning=loose
 ENV UNZIP_VERSION=6.0-26
 
