@@ -65,7 +65,7 @@ Note that two secret variables (`Azure.UserName` and `Azure.Password`) are passe
 
 | Tag      | Description                                                                     | Base Image                                 | Terraform | Size                                                                                                                               |
 |----------|---------------------------------------------------------------------------------|--------------------------------------------|-----------|------------------------------------------------------------------------------------------------------------------------------------|
-| latest   | Latest stable release (from `main` branch)                                      | swissgrc/azure-pipelines-azurecli:2.40.0   | 1.3.0     | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-terraform/latest?style=flat-square)   |
+| latest   | Latest stable release (from `main` branch)                                      | swissgrc/azure-pipelines-azurecli:2.40.0   | 1.3.1     | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-terraform/latest?style=flat-square)   |
 | unstable | Latest unstable release (from `develop` branch)                                 | swissgrc/azure-pipelines-azurecli:2.40.0   | 1.3.1     | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-terraform/unstable?style=flat-square) |
 | 0.14.6   | [Terraform 0.14.6](https://github.com/hashicorp/terraform/releases/tag/v0.14.6) | azure-cli:2.19.1                           | 0.14.6    | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-terraform/0.14.6?style=flat-square)   |
 | 0.15.0   | [Terraform 0.15.0](https://github.com/hashicorp/terraform/releases/tag/v0.15.0) | azure-cli:2.22.0                           | 0.15.0    | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-terraform/0.15.0?style=flat-square)   |
@@ -81,6 +81,7 @@ Note that two secret variables (`Azure.UserName` and `Azure.Password`) are passe
 | 1.2.8    | [Terraform 1.2.8](https://github.com/hashicorp/terraform/releases/tag/v1.2.8)   | swissgrc/azure-pipelines-azurecli:2.39.0.1 | 1.2.8     | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-terraform/1.2.8?style=flat-square)    |
 | 1.2.9    | [Terraform 1.2.9](https://github.com/hashicorp/terraform/releases/tag/v1.2.9)   | swissgrc/azure-pipelines-azurecli:2.40.0   | 1.2.9     | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-terraform/1.2.9?style=flat-square)    |
 | 1.3.0    | [Terraform 1.3.0](https://github.com/hashicorp/terraform/releases/tag/v1.3.0)   | swissgrc/azure-pipelines-azurecli:2.40.0   | 1.3.0     | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-terraform/1.3.0?style=flat-square)    |
+| 1.3.1    | [Terraform 1.3.1](https://github.com/hashicorp/terraform/releases/tag/v1.3.1)   | swissgrc/azure-pipelines-azurecli:2.40.0   | 1.3.1     | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-terraform/1.3.1?style=flat-square)    |
 
 ### Configuration
 
@@ -88,7 +89,7 @@ These environment variables are supported:
 
 | Environment variable   | Default value        | Description                                                      |
 |------------------------|----------------------|------------------------------------------------------------------|
-| TERRAFORM_VERSION      | `1.3.0`              | Version of Terraform installed in the image.                     |
+| TERRAFORM_VERSION      | `1.3.1`              | Version of Terraform installed in the image.                     |
 | GIT_VERSION            | `1:2.30.2-1`         | Version of Git installed in the image.                           |
 | UNZIP_VERSION          | `6.0-26+deb11u1`     | Version of `unzip` package used to install components.           |
 
