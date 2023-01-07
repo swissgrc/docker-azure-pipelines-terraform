@@ -1,4 +1,4 @@
-FROM swissgrc/azure-pipelines-azurecli:2.42.0
+FROM swissgrc/azure-pipelines-azurecli:2.43.0
 
 LABEL org.opencontainers.image.vendor="Swiss GRC AG"
 LABEL org.opencontainers.image.authors="Swiss GRC AG <opensource@swissgrc.com>"
@@ -23,7 +23,7 @@ RUN apt-get update -y && \
 # Install Terraform
 
 # renovate: datasource=github-releases depName=hashicorp/terraform extractVersion=^v(?<version>.*)$
-ENV TERRAFORM_VERSION=1.3.6
+ENV TERRAFORM_VERSION=1.3.7
 #Disabled renovate: datasource=repology depName=debian_11/unzip versioning=loose
 ENV UNZIP_VERSION=6.0-26+deb11u1
 
