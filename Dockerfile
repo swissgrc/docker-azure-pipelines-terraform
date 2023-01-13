@@ -1,4 +1,4 @@
-FROM swissgrc/azure-pipelines-azurecli:2.43.0
+FROM swissgrc/azure-pipelines-azurecli:2.44.1
 
 LABEL org.opencontainers.image.vendor="Swiss GRC AG"
 LABEL org.opencontainers.image.authors="Swiss GRC AG <opensource@swissgrc.com>"
