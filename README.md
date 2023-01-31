@@ -89,14 +89,4 @@ Note that two secret variables (`Azure.UserName` and `Azure.Password`) are passe
 | 1.3.6    | [Terraform 1.3.6](https://github.com/hashicorp/terraform/releases/tag/v1.3.6)   | swissgrc/azure-pipelines-azurecli:2.42.0   | 1.3.6     | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-terraform/1.3.6?style=flat-square)    |
 | 1.3.7    | [Terraform 1.3.7](https://github.com/hashicorp/terraform/releases/tag/v1.3.7)   | swissgrc/azure-pipelines-azurecli:2.43.0   | 1.3.7     | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-terraform/1.3.7?style=flat-square)    |
 
-### Configuration
-
-These environment variables are supported:
-
-| Environment variable   | Default value        | Description                                                      |
-|------------------------|----------------------|------------------------------------------------------------------|
-| TERRAFORM_VERSION      | `1.3.8`              | Version of Terraform installed in the image.                     |
-| GIT_VERSION            | `1:2.30.2-1`         | Version of Git installed in the image.                           |
-| UNZIP_VERSION          | `6.0-26+deb11u1`     | Version of `unzip` package used to install components.           |
-
 [Azure Pipelines container jobs]: https://docs.microsoft.com/en-us/azure/devops/pipelines/process/container-phases
