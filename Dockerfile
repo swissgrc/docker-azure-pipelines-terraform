@@ -10,7 +10,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # Install Git
 
-#Disabled renovate: datasource=repology depName=debian_11/git versioning=loose
+# renovate: datasource=repology depName=debian_11/git versioning=loose
 ENV GIT_VERSION=1:2.30.2-1
 
 RUN apt-get update -y && \
@@ -24,7 +24,7 @@ RUN apt-get update -y && \
 
 # renovate: datasource=github-releases depName=hashicorp/terraform extractVersion=^v(?<version>.*)$
 ENV TERRAFORM_VERSION=1.3.7
-#Disabled renovate: datasource=repology depName=debian_11/unzip versioning=loose
+# renovate: datasource=repology depName=debian_11/unzip versioning=loose
 ENV UNZIP_VERSION=6.0-26+deb11u1
 
 RUN apt-get update -y && \
