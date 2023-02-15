@@ -39,7 +39,7 @@ COPY --from=build /tmp/ /tmp
 # Install Git
 
 # renovate: datasource=repology depName=debian_11/git versioning=loose
-ENV GIT_VERSION=1:2.30.2-1
+ENV GIT_VERSION=1:2.30.2-1+deb11u1
 
 RUN apt-get update -y && \
   # Install Git
