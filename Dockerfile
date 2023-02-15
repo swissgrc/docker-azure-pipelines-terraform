@@ -1,5 +1,5 @@
 # Base image containing dependencies used in builder and final image
-FROM swissgrc/azure-pipelines-azurecli:2.44.1 AS base
+FROM swissgrc/azure-pipelines-azurecli:2.45.0 AS base
 
 
 # Builder image
