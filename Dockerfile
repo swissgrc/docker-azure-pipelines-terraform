@@ -36,20 +36,6 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 WORKDIR /
 COPY --from=build /tmp/ /tmp
 
-# Install Git
-
-# renovate: datasource=repology depName=debian_11/git versioning=loose
-ENV GIT_VERSION=1:2.30.2-1
-
-RUN apt-get update -y && \
-  # Install Git
-  apt-get install -y --no-install-recommends git=${GIT_VERSION} && \
-  # Clean up
-  apt-get clean && \
-  rm -rf /var/lib/apt/lists/* && \
-  # Smoke test
-  git version
-
 # Install Terraform
 
 RUN cp /tmp/terraform /usr/bin/terraform && \
