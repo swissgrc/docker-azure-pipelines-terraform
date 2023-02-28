@@ -11,9 +11,9 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # Install Terraform
 
 # renovate: datasource=repology depName=debian_11/curl versioning=loose
-ENV CURL_VERSION=7.74.0-1.3+deb11u5
+ENV CURL_VERSION=7.74.0-1.3+deb11u7
 # renovate: datasource=github-releases depName=hashicorp/terraform extractVersion=^v(?<version>.*)$
-ENV TERRAFORM_VERSION=1.3.8
+ENV TERRAFORM_VERSION=1.3.9
 # renovate: datasource=repology depName=debian_11/unzip versioning=loose
 ENV UNZIP_VERSION=6.0-26+deb11u1
 
