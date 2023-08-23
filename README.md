@@ -100,5 +100,6 @@ Note that two secret variables (`Azure.UserName` and `Azure.Password`) are passe
 | 1.5.2    | [Terraform 1.5.2](https://github.com/hashicorp/terraform/releases/tag/v1.5.2)   | swissgrc/azure-pipelines-azurecli:2.50.0-net6 | 1.5.2     | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-terraform/1.5.2?style=flat-square)    |
 | 1.5.3    | [Terraform 1.5.3](https://github.com/hashicorp/terraform/releases/tag/v1.5.3)   | swissgrc/azure-pipelines-azurecli:2.50.0-net6 | 1.5.3     | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-terraform/1.5.3?style=flat-square)    |
 | 1.5.4    | [Terraform 1.5.4](https://github.com/hashicorp/terraform/releases/tag/v1.5.4)   | swissgrc/azure-pipelines-azurecli:2.50.0-net6 | 1.5.4     | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-terraform/1.5.4?style=flat-square)    |
+| 1.5.5    | [Terraform 1.5.5](https://github.com/hashicorp/terraform/releases/tag/v1.5.5)   | swissgrc/azure-pipelines-azurecli:2.50.0-net6 | 1.5.5     | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-terraform/1.5.5?style=flat-square)    |
 
 [Azure Pipelines container jobs]: https://docs.microsoft.com/en-us/azure/devops/pipelines/process/container-phases
