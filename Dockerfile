@@ -1,5 +1,5 @@
 # Base image containing dependencies used in builder and final image
-FROM ghcr.io/swissgrc/azure-pipelines-azurecli:2.53.1-net6 AS base
+FROM ghcr.io/swissgrc/azure-pipelines-azurecli:2.54.0-net6 AS base
 
 
 # Builder image
@@ -10,16 +10,16 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # Install Terraform
 
-# renovate: datasource=repology depName=debian_11/curl versioning=deb
-ENV CURL_VERSION=7.74.0-1.3+deb11u10
+# renovate: datasource=repology depName=debian_12/curl versioning=deb
+ENV CURL_VERSION=7.88.1-10+deb12u4
 # renovate: datasource=github-releases depName=hashicorp/terraform extractVersion=^v(?<version>.*)$
-ENV TERRAFORM_VERSION=1.6.3
-# renovate: datasource=repology depName=debian_11/unzip versioning=deb
-ENV UNZIP_VERSION=6.0-26+deb11u1
+ENV TERRAFORM_VERSION=1.6.4
+# renovate: datasource=repology depName=debian_12/unzip versioning=deb
+ENV UNZIP_VERSION=6.0
 
 RUN apt-get update -y && \
   # Install necessary dependencies
-  apt-get install -y --no-install-recommends curl=${CURL_VERSION} unzip=${UNZIP_VERSION} && \
+  apt-get install -y --no-install-recommends curl=${CURL_VERSION} unzip=${UNZIP_VERSION}-28 && \
   # Download Terraform
   curl -o /tmp/terraform.zip https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip && \
   unzip /tmp/terraform.zip -d /tmp && \
