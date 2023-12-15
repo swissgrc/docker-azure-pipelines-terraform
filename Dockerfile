@@ -1,5 +1,5 @@
 # Base image containing dependencies used in builder and final image
-FROM ghcr.io/swissgrc/azure-pipelines-azurecli:2.54.0-net6 AS base
+FROM ghcr.io/swissgrc/azure-pipelines-azurecli:2.55.0-net8 AS base
 
 
 # Builder image
@@ -13,7 +13,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # renovate: datasource=repology depName=debian_12/curl versioning=deb
 ENV CURL_VERSION=7.88.1-10+deb12u4
 # renovate: datasource=github-releases depName=hashicorp/terraform extractVersion=^v(?<version>.*)$
-ENV TERRAFORM_VERSION=1.6.5
+ENV TERRAFORM_VERSION=1.6.6
 # renovate: datasource=repology depName=debian_12/unzip versioning=deb
 ENV UNZIP_VERSION=6.0
 
