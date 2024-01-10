@@ -1,5 +1,5 @@
 # Base image containing dependencies used in builder and final image
-FROM ghcr.io/swissgrc/azure-pipelines-azurecli:2.55.0-net8 AS base
+FROM ghcr.io/swissgrc/azure-pipelines-azurecli:2.56.0-net8 AS base
 
 
 # Builder image
