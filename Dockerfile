@@ -25,6 +25,15 @@ RUN apt-get update -y && \
   unzip /tmp/terraform.zip -d /tmp && \
   rm /tmp/terraform.zip
 
+# Install tflint
+
+# renovate: datasource=github-releases depName=terraform-linters/tflint extractVersion=^v(?<version>.*)$
+ENV TFLINT_VERSION=0.51.1
+
+RUN curl -Lo /tmp/tflint.zip https://github.com/terraform-linters/tflint/releases/download/v${TFLINT_VERSION}/tflint_linux_amd64.zip && \
+  unzip /tmp/tflint.zip -d /tmp && \
+  rm /tmp/tflint.zip
+
 
 # Final image
 FROM base AS final
@@ -40,11 +49,21 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 WORKDIR /
 COPY --from=build /tmp/ /tmp
 
+# Ensure prerequisits are available
+RUN git version
+
 # Install Terraform
 
 RUN cp /tmp/terraform /usr/bin/terraform && \
-  rm -rf /tmp/* && \
   # Smoke test
-  terraform version && \
-  # Ensure prerequisits are available
-  git version
+  terraform version
+
+# Install tflint
+
+RUN cp /tmp/tflint /usr/local/bin/tflint && \
+  # Smoke test
+  tflint --version
+
+# Cleanup
+
+RUN rm -rf /tmp/*
