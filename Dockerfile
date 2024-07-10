@@ -1,5 +1,5 @@
 # Base image containing dependencies used in builder and final image
-FROM ghcr.io/swissgrc/azure-pipelines-azurecli:2.61.0-net8 AS base
+FROM ghcr.io/swissgrc/azure-pipelines-azurecli:2.62.0-net8 AS base
 
 
 # Builder image
@@ -11,9 +11,9 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # Install Terraform
 
 # renovate: datasource=repology depName=debian_12/curl versioning=deb
-ENV CURL_VERSION=7.88.1-10+deb12u5
+ENV CURL_VERSION=7.88.1-10+deb12u6
 # renovate: datasource=github-releases depName=hashicorp/terraform extractVersion=^v(?<version>.*)$
-ENV TERRAFORM_VERSION=1.9.0
+ENV TERRAFORM_VERSION=1.9.1
 # renovate: datasource=repology depName=debian_12/unzip versioning=deb
 ENV UNZIP_VERSION=6.0
 
@@ -28,7 +28,7 @@ RUN apt-get update -y && \
 # Install tflint
 
 # renovate: datasource=github-releases depName=terraform-linters/tflint extractVersion=^v(?<version>.*)$
-ENV TFLINT_VERSION=0.51.1
+ENV TFLINT_VERSION=0.52.0
 
 RUN curl -Lo /tmp/tflint.zip https://github.com/terraform-linters/tflint/releases/download/v${TFLINT_VERSION}/tflint_linux_amd64.zip && \
   unzip /tmp/tflint.zip -d /tmp && \
