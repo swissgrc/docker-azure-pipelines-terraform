@@ -49,21 +49,14 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 WORKDIR /
 COPY --from=build /tmp/ /tmp
 
-# Ensure prerequisits are available
-RUN git version
-
-# Install Terraform
-
-RUN cp /tmp/terraform /usr/bin/terraform && \
-  # Smoke test
-  terraform version
-
-# Install tflint
-
-RUN cp /tmp/tflint /usr/local/bin/tflint && \
-  # Smoke test
-  tflint --version
-
-# Cleanup
-
-RUN rm -rf /tmp/*
+RUN \
+  # Ensure prerequisits are available
+  git version && \
+  # Install Terraform
+  cp /tmp/terraform /usr/bin/terraform && \
+  terraform version && \
+  # Install tflint
+  cp /tmp/tflint /usr/local/bin/tflint && \
+  tflint --version && \
+  # Cleanup
+  rm -rf /tmp/*
