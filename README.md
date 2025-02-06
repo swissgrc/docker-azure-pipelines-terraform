@@ -73,5 +73,4 @@ Note that two secret variables (`Azure.UserName` and `Azure.Password`) are passe
 | unstable | Latest unstable release (from `develop` branch)           | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/swissgrc/azure-pipelines-terraform/unstable?style=flat-square) |
 | x.y.z    | Image for a specific version of Terraform                 |                                                                                                                                    |
 
-
 [Azure Pipelines container jobs]: https://docs.microsoft.com/en-us/azure/devops/pipelines/process/container-phases
