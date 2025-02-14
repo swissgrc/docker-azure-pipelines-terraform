@@ -10,15 +10,6 @@ Docker image to run Terraform commands in [Azure Pipelines container jobs].
 
 This image can be used to run Terraform commands in [Azure Pipelines container jobs].
 
-The following software is additionally available in the image:
-
-| Software   | Included since |
-|------------|----------------|
-| Azure Cli  | 0.14.6         |
-| Git        | 1.2.3          |
-| .NET       | 1.2.3          |
-| Docker CLI | 1.2.5          |
-
 ### Azure Pipelines Container Job
 
 To use the image in an Azure Pipelines Container Job, add one of the following example tasks and use it with the `container` property.
