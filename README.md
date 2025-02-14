@@ -52,11 +52,12 @@ Note that two secret variables (`Azure.UserName` and `Azure.Password`) are passe
                     AZURE_PASSWORD: $(Azure.Password)
 ```
 
-### Included Software
+## Included Software
+- [swissgrc/azure-pipelines-azurecli:net9](https://github.com/swissgrc/docker-azure-pipelines-azurecli-net9) as base image
 - Terraform
 - TfLint
 
-### Tags
+## Tags
 
 | Tag      | Description                                               | Size                                                                                                                               |
 |----------|-----------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
