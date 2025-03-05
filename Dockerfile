@@ -1,5 +1,5 @@
 # Base image containing dependencies used in builder and final image
-FROM ghcr.io/swissgrc/azure-pipelines-azurecli:2.69.0-net9 AS base
+FROM ghcr.io/swissgrc/azure-pipelines-azurecli:2.70.0-net9 AS base
 
 
 # Builder image
@@ -18,7 +18,7 @@ RUN apt-get update -y && \
 # Install Terraform
 
 # renovate: datasource=github-releases depName=hashicorp/terraform extractVersion=^v(?<version>.*)$
-ENV TERRAFORM_VERSION=1.11.0
+ENV TERRAFORM_VERSION=1.11.1
 
 # Download Terraform
 ADD https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip /tmp/terraform.zip
