@@ -18,7 +18,7 @@ RUN apt-get update -y && \
 # Install Terraform
 
 # renovate: datasource=github-releases depName=hashicorp/terraform extractVersion=^v(?<version>.*)$
-ENV TERRAFORM_VERSION=1.11.3
+ENV TERRAFORM_VERSION=1.11.4
 
 # Download Terraform
 ADD https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip /tmp/terraform.zip
