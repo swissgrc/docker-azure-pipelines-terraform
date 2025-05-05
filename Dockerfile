@@ -28,7 +28,7 @@ RUN unzip /tmp/terraform.zip -d /tmp && \
 # Install tflint
 
 # renovate: datasource=github-releases depName=terraform-linters/tflint extractVersion=^v(?<version>.*)$
-ENV TFLINT_VERSION=0.56.0
+ENV TFLINT_VERSION=0.57.0
 
 ADD https://github.com/terraform-linters/tflint/releases/download/v${TFLINT_VERSION}/tflint_linux_amd64.zip /tmp/tflint.zip
 RUN unzip /tmp/tflint.zip -d /tmp && \
