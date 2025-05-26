@@ -18,7 +18,7 @@ RUN apt-get update -y && \
 # Install Terraform
 
 # renovate: datasource=github-releases depName=hashicorp/terraform extractVersion=^v(?<version>.*)$
-ENV TERRAFORM_VERSION=1.12.0
+ENV TERRAFORM_VERSION=1.12.1
 
 # Download Terraform
 ADD https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip /tmp/terraform.zip
@@ -28,7 +28,7 @@ RUN unzip /tmp/terraform.zip -d /tmp && \
 # Install tflint
 
 # renovate: datasource=github-releases depName=terraform-linters/tflint extractVersion=^v(?<version>.*)$
-ENV TFLINT_VERSION=0.57.0
+ENV TFLINT_VERSION=0.58.0
 
 ADD https://github.com/terraform-linters/tflint/releases/download/v${TFLINT_VERSION}/tflint_linux_amd64.zip /tmp/tflint.zip
 RUN unzip /tmp/tflint.zip -d /tmp && \
